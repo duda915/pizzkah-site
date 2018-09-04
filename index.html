@@ -40,7 +40,7 @@
 
   <div class="container-fluid">
     <div class="row p-2">
-      <div class="col-sm-2">
+      <div class="col-md-2">
         <div class="card">
           <div class="card-header bg-pizzkah-dark">
             <i class="fas fa-search"></i> <b>Search</b>
@@ -51,25 +51,43 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text bg-pizzkah-light"><i class="fas fa-keyboard"></i></span>
                 </div>
-                <input type="text" class="form-control" placeholder="Search pizza" >
+                <input type="text" class="form-control" placeholder="Search pizza" style="font-size: 12px;">
               </div>
             </label>
           </div>
         </div>
       </div>
-      <div class="col-sm-8">
+      <div class="col-md-8">
         <div class="card">
           <div class="card-header bg-pizzkah-light" style="height: 10px;"></div>
-          <div class="card-body">Body</div>
+          <div class="card-body">
+            <!-- Pizza cards -->
+            <div class="card">
+              <div class="card-header bg-pizzkah-dark text-center">Ham Pizza</div>
+              <div class="card-body">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-sm-11 pizza text-center m-auto"> 
+                      Sauce, Cheese, Ham, Mushroom
+                    </div>
+                    <div class="col-sm-1 pizza text-center m-auto p-2">
+                      <button type="button" class="btn btn-pizzkah">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer bg-pizzkah-light" style="height: 5px"></div>
+            </div>
+          </div>
           <div class="card-footer bg-pizzkah-light" style="height: 10px;"></div>
         </div>
       </div>
-      <div class="col-sm-2">
+      <div class="col-md-2">
         <div class="card">
           <div class="card-header bg-pizzkah-dark">
             <i class="fas fa-shopping-cart"></i> <b>Order</b>
           </div>
-          <div class="card-body">Body</div>
+          <div class="card-body pizza">Body</div>
         </div>
       </div>
     </div>
