@@ -8,11 +8,11 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   
-
+  
   <link rel="manifest" href="site.webmanifest">
   <link rel="apple-touch-icon" href="icon.png">
   <!-- Place favicon.ico in the root directory -->
-
+  
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
 </head>
@@ -20,99 +20,121 @@
 <body>
   <!--[if lte IE 9]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-  <![endif]-->
-
-  <!-- Add your site or application content here -->
-  <nav class="navbar navbar-expand bg-dark shadow p-0">
-    <div class="container-fluid bg-pizzkah-light">
-      <ul class="navbar-nav">
+    <![endif]-->
+    
+    <!-- Add your site or application content here -->
+    <nav class="navbar navbar-expand sticky-top shadow p-0">
+      <div class="container-fluid bg-pizzkah-light">
+        <ul class="navbar-nav">
           <li class="nav-item">
             <a class="nav-link p-3 a-pizzkah" href="#"><i class="fas fa-home" style="font-size: 30px"></i></a>
           </li>
           
           <li class="nav-item">
-              <a class="nav-link p-3 a-pizzkah-active" href="#"><i class="fas fa-shopping-cart" style="font-size: 30px"></i></a>
+            <a class="nav-link p-3 a-pizzkah-active" href="#"><i class="fas fa-shopping-cart" style="font-size: 30px"></i></a>
           </li> 
-      </ul>
-      <a class="pr-4" href="#"><img src="res/logo.png" alt="brand" height="40px"></a>
-    </div>
-  </nav>
-
-  <div class="container-fluid">
-    <div class="row p-2">
-      <div class="col-md-2">
-        <div class="card">
-          <div class="card-header bg-pizzkah-dark">
-            <i class="fas fa-search"></i> <b>Search</b>
-          </div>
-          <div class="card-body">
-            <label>
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text bg-pizzkah-light"><i class="fas fa-keyboard"></i></span>
+        </ul>
+        <a class="pr-4" href="#"><img src="res/logo.png" alt="brand" height="40px"></a>
+      </div>
+    </nav>
+    
+    <div class="container-fluid">
+      <div class="row p-2">
+        <div class="col-md-2">
+          <div class="card">
+            <div class="card-header bg-pizzkah-dark">
+              <i class="fas fa-search"></i> <b>Search</b>
+            </div>
+            <div class="card-body m-auto">
+              <label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-pizzkah-light"><i class="fas fa-keyboard"></i></span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="Search pizza" style="font-size: 12px;">
                 </div>
-                <input type="text" class="form-control" placeholder="Search pizza" style="font-size: 12px;">
-              </div>
-            </label>
+              </label>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-md-8">
-        <div class="card">
-          <div class="card-header bg-pizzkah-light" style="height: 10px;"></div>
-          <div class="card-body">
-            <!-- Pizza cards -->
-            <div class="card">
-              <div class="card-header bg-pizzkah-dark text-center">Ham Pizza</div>
-              <div class="card-body">
-                <div class="container-fluid">
-                  <div class="row">
-                    <div class="col-sm-11 pizza text-center m-auto"> 
-                      Sauce, Cheese, Ham, Mushroom
-                    </div>
-                    <div class="col-sm-1 pizza text-center m-auto p-2">
-                      <button type="button" class="btn btn-pizzkah">+</button>
+        <div class="col-md-7">
+          <div class="card">
+            <div class="card-header bg-pizzkah-light" style="height: 10px;"></div>
+            <div id="pizzas" class="card-body">
+              <!-- Pizza cards -->
+              <!-- Template card -->
+              <!-- <div class="card mb-3">
+                <div class="card-header bg-pizzkah-dark text-center">Ham Pizza - 22.22</div>
+                <div class="card-body">
+                  <div class="container-fluid">
+                    <div class="row">
+                      <div class="col-sm-11 pizza text-center m-auto"> 
+                        Sauce, Cheese, Ham, Mushroom
+                      </div>
+                      <div class="col-sm-1 pizza text-center m-auto p-2">
+                        <button type="button" class="btn btn-pizzkah" onclick="handleAddPizza()">+</button>
+                      </div>
                     </div>
                   </div>
                 </div>
+                <div class="card-footer bg-pizzkah-light" style="height: 5px"></div>
+              </div> -->
+              
+              
+            </div>
+            <div class="card-footer bg-pizzkah-light" style="height: 10px;"></div>
+          </div>
+          
+        </div>
+        <div class="col-md-3">
+          <div class="card">
+            <div class="card-header bg-pizzkah-dark">
+              <i class="fas fa-shopping-cart"></i> <b>Order</b>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table text-center">
+                    <thead>
+                        <tr>
+                          <th scope="col">Name</th>
+                          <th scope="col">Count</th>
+                          <th scope="col">Remove</th>
+                        </tr>
+                      </thead>
+                      <tbody id="order">
+
+                      </tbody>
+                </table>
               </div>
-              <div class="card-footer bg-pizzkah-light" style="height: 5px"></div>
+              <div id="price" class="text-center pizza"></div>
+              <div id="submitButton" class="text-center pizza"></div>
             </div>
           </div>
-          <div class="card-footer bg-pizzkah-light" style="height: 10px;"></div>
-        </div>
-      </div>
-      <div class="col-md-2">
-        <div class="card">
-          <div class="card-header bg-pizzkah-dark">
-            <i class="fas fa-shopping-cart"></i> <b>Order</b>
-          </div>
-          <div class="card-body pizza">Body</div>
         </div>
       </div>
     </div>
-  </div>
-
+    
+    
+    
+    <script src="js/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrapoverride.css">
+    
+    <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+    <script>
+      window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+      ga('create', 'UA-XXXXX-Y', 'auto'); ga('send', 'pageview')
+    </script>
+    <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+  </body>
   
+  </html>
   
-  <script src="js/vendor/modernizr-3.6.0.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-  <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-  <script src="js/plugins.js"></script>
-  <script src="js/main.js"></script>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
-  <link rel="stylesheet" href="css/bootstrapoverride.css">
-  
-  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-  <script>
-    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
-    ga('create', 'UA-XXXXX-Y', 'auto'); ga('send', 'pageview')
-  </script>
-  <script src="https://www.google-analytics.com/analytics.js" async defer></script>
-</body>
-
-</html>
