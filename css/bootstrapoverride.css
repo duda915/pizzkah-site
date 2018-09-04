@@ -1,0 +1,25 @@
+* {
+    font-family: 'Quicksand', sans-serif;
+    color: white;
+}
+
+.bg-pizzkah-light{
+    background-color: #FFA2A2;
+}
+
+.bg-pizzkah-dark {
+    background-color: #FB7575;
+}
+
+.a-pizzkah:hover {
+    background-color: #FB7575;
+}
+
+.a-pizzkah-active {
+    background-color: #FB7575;
+}
+
+.form-control:focus {
+    border-color: #FFA2A2;
+    box-shadow: inset 0 -1px 0 #ddd;
+}
