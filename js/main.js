@@ -46,13 +46,16 @@ function handleAddPizza(event) {
         let newItem = {
             name: pizza.name,
             count: 1,
-            price: pizza.price
+            price: pizza.price,
+            id: pizza.id,
         };
 
         orderList.push(newItem);
     }
 
     refreshOrderItems();
+
+    
 
 }
 
@@ -101,12 +104,49 @@ function fetchPizzas() {
 }
 
 function handleSubmitOrder() {
-    //just open modal
+    let firstNameInput = $('#firstName').val();
+    let lastNameInput = $('#lastName').val();
+    let phoneNumberInput = $('#phoneNumber').val();
+    let addressInput = $('#address').val();
+
+    if(firstNameInput == '' || lastNameInput == '' || phoneNumberInput == '' || addressInput == '') {
+        alert('One of the field is empty');
+    } else {
+        let newOrder = {
+            id: null,
+            customerFirstName: firstNameInput,
+            customerLastName: lastNameInput,
+            date: new Date().toISOString(),
+            phoneNumber: phoneNumberInput,
+            address: addressInput,
+            done: false,
+            orderDataList: orderList.map(order => {
+                return ({
+                    id: null,
+                    pizza: {
+                        id: order.id,
+                    }
+                })
+            })
+        };
+
+        fetch('http://localhost:8081/api/order', {
+            method: 'POST', // or 'PUT'
+            body: JSON.stringify(newOrder),
+            headers:{
+                'Content-Type': 'application/json'
+            }
+        }).then(res => res.json())
+        .then(response => console.log('Success:', JSON.stringify(response)))
+        .catch(error => console.error('Error:', error));   
+
+        $('#orderModal').modal('toggle'); 
+
+    }
+
+
 }
 
-function handleCommitOrder() {
-    //real submit
-}
 
 
 
@@ -167,7 +207,7 @@ function refreshOrderItems() {
     $('#submitButton').empty();
     
     if(price > 0) {
-        let button = '<button type="button" class="btn btn-pizzkah" onclick="handleSubmitOrder()">Submit</button>';
+        let button = '<button type="button" class="btn btn-pizzkah" data-toggle="modal" data-target="#orderModal">Submit</button>';
         $('#price').append('Price: ' + price);
         $('#submitButton').append(button);
 

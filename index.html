@@ -113,6 +113,57 @@
         </div>
       </div>
     </div>
+
+    <div class="modal fade" id="orderModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title pizza">Order data</h5>
+            <button type="button" class="close" data-dismiss="modal" >
+              <span class="pizza" aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text bg-pizzkah-light" style="color: white">First name</span>
+                </div>
+                <input type="text" id="firstName" class="form-control" placeholder="First name" style="font-size: 15px;">
+              </div>
+            </label>
+            <label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text bg-pizzkah-light" style="color: white">Last name</span>
+                </div>
+                <input type="text" id="lastName" class="form-control" placeholder="Last name" style="font-size: 15px;">
+              </div>
+            </label>
+            <label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text bg-pizzkah-light" style="color: white">Phone number</span>
+                </div>
+                <input type="text" id="phoneNumber" class="form-control" placeholder="Phone number" style="font-size: 15px;">
+              </div>
+            </label>
+            <label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text bg-pizzkah-light" style="color: white">Address</span>
+                </div>
+                <input type="text" id="address" class="form-control" placeholder="Address" style="font-size: 15px;">
+              </div>
+            </label>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-pizzkah" onclick="handleSubmitOrder()">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     
     
     
